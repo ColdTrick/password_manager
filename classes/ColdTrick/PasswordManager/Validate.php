@@ -22,6 +22,12 @@ class Validate {
 			return;
 		}
 		
+		if (elgg_is_admin_logged_in() && get_input('autogen_password')) {
+			// admin let the system generate a random password
+			// thrust the system
+			return;
+		}
+		
 		$password = elgg_extract('password', $params);
 		if (!preg_match(self::getRegex(), $password)) {
 			throw new \RegistrationException(self::getErrorMessage());
