@@ -48,6 +48,11 @@ class Views {
 	 */
 	public static function passwordInput($hook, $type, $vars, $params) {
 		
+		if (elgg_extract('name', $vars) === 'current_password') {
+			// acount settings form, current password doesn't need validation
+			return;
+		}
+		
 		elgg_require_js('password_manager/validate');
 		$vars['pattern'] = trim(Validate::getRegex(), '/');
 		$vars['data-custom-error'] = Validate::getErrorMessage();
@@ -68,6 +73,9 @@ class Views {
 	public static function passwordHelp($hook, $type, $vars, $params) {
 		
 		if (elgg_extract('input_type', $vars) !== 'password') {
+			return;
+		} elseif (elgg_extract('name', $vars) === 'current_password') {
+			// acount settings form, current password doesn't need help
 			return;
 		}
 		

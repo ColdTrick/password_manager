@@ -19,6 +19,7 @@ function password_manager_init() {
 	}
 	
 	elgg_register_plugin_hook_handler('registeruser:validate:password', 'all', '\ColdTrick\PasswordManager\Validate::validatePassword');
+	elgg_register_plugin_hook_handler('view_vars', 'forms/account/settings', '\ColdTrick\PasswordManager\Views::processForm');
 	elgg_register_plugin_hook_handler('view_vars', 'forms/register', '\ColdTrick\PasswordManager\Views::processForm');
 	elgg_register_plugin_hook_handler('view_vars', 'forms/useradd', '\ColdTrick\PasswordManager\Views::processForm');
 }
