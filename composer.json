@@ -1,0 +1,21 @@
+{
+	"name": "coldtrick/password_manager",
+	"description": "Allow control over password requirements of your Elgg community",
+	"type": "elgg-plugin",
+	"keywords": ["elgg", "plugin", "password"],
+	"license": "GPL-2.0-only",
+	"support": {
+		"source": "https://github.com/ColdTrick/password_manager",
+		"issues": "https://github.com/ColdTrick/password_manager/issues"
+	},
+	"require": {
+		"composer/installers": "^1.0.8"
+	},
+	"require-dev": {
+		"coldtrick/sniffs": "dev-master",
+		"coldtrick/releases": "dev-master"
+	},
+	"conflict": {
+		"elgg/elgg": "<2.3"
+	}
+}
